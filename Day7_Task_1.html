@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          let asianCoutries = data.filter((country) => {
+            return country.region == "Asia";
+          });
+
+          for (let i = 0; i < asianCoutries.length; i++)
+            console.log(asianCoutries[i].name.common);
+        });
+    </script>
+  </body>
+</html>
